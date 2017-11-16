@@ -1,7 +1,7 @@
 # COLORS
 
 # NO COLOR
-NONE="\[\033[0m\]"
+END_C="\[\033[0m\]"
 
 # Regular colors
 BLACK="\[\033[0;30m\]"   # black
