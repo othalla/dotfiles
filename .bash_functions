@@ -43,7 +43,7 @@ function bkfile () {
       MYUID=$(/usr/xpg4/bin/id -u $(/usr/ucb/whoami)) 
       ;; 
     FreeBSD)
-      echo "Todo"
+      FILE_OWNUID="$(/usr/bin/stat -f %f $1)"
       ;;
     *) 
       echo "WTF?"
