@@ -35,13 +35,13 @@ if [ -f ~/.bash_colors ];then
 fi
 
 if [ $OS == "FreeBSD" ] ; then
-  CUSTOM_C=${B_RED}
+  CUSTOM_COLOR=${B_RED}
 else
-  CUSTOM_C=${B_BLUE}
+  CUSTOM_COLOR=${B_BLUE}
 fi
 
 # Build PS1
-PS1="${B_BLUE}\u${END_C}${B_YELLOW}@${END_C}${CUSTOM_C}\h${END_C}:${B_GREEN}\w${END_C}${B_YELLOW} # ${END_C}"
+PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}${CUSTOM_COLOR} # ${END_C}"
 
 # FUNCTIONS
 man() {
