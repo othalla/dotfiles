@@ -1,6 +1,12 @@
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
+let system = substitute(system('uname -s'), '\n', '', '')
 let LTPC = "othallaptop"
+
+if system == "FreeBSD"
+  set mouse-=a
+  set bg=dark
+endif
 
 if hostname == LTPC
   set rtp+=~/.vim/bundle/Vundle.vim
