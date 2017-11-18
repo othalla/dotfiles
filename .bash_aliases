@@ -12,4 +12,8 @@ if [[ "$ME" == "othallaptop" ]]; then
   alias lidon="pgrep systemd-inhibit | xargs kill"
   alias pycharm="/opt/pycharm-community-2017.1.2/bin/pycharm.sh"
   alias ls="ls --group-directories-first --color=auto"
+  alias ll="ls --group-directories-first --color=auto -la"
+elif [[ "$OS" == "FreeBSD" ]]; then
+  alias ls="ls -G"
+  alias ll="ls -laG"
 fi
