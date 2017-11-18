@@ -1,17 +1,16 @@
 URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
-
 urxvt*font: xft:inconsolata:size=10,xft:Droid Sans Mono for Powerline:size=5
 urxvt*transparent: true
 URxvt*shading: 30
 URxvt.colorIT: #87af5f
 URxvt.colorUL: #87afd7
+URxvt.cutchars: ()*,@:\;<>[]{|}│
 
 URxvt.cursorColor: #00ff00
 URxvt.cursorBlink: true
 URxvt.colorBD: white
-
 !Colors
 ! black
 URxvt*color0:  #000000
