@@ -3,7 +3,7 @@
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 echo $SCRIPTPATH
 
-for i in $(<$SCRIPTPATH/dotfiles)
+for i in $(cat $SCRIPTPATH/dotfiles)
 do
   echo "Creating link for ${i}"
   ln -sf $SCRIPTPATH/$i ~/$i || {
