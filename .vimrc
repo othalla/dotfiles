@@ -38,20 +38,21 @@ set t_Co=256
 set nu
 set ruler
 set list
-set cmdheight=1
 set showmatch
 set hlsearch
 set nocompatible
-set number
 set wildmenu
 set incsearch
-
 set expandtab
+
+" Default Indent & linesize
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set textwidth=100
 
+" statusbat
+set cmdheight=1
 set laststatus=2
 set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
 if version >= 700
@@ -68,17 +69,10 @@ endfunc
 
 " Python
 autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd Filetype python set tabstop=8
-autocmd Filetype python set shiftwidth=4
-autocmd Filetype python set softtabstop=4
-autocmd Filetype python set textwidth=79
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-autocmd BufRead,BufNewFile *.c set ft=c
+" c
+autocmd FileType c setlocal shiftwidth=8 tabstop=8 softtabstop=8 textwidth=140
 autocmd BufWrite *.c :call DeleteTrailingWS()
-autocmd Filetype c set tabstop=8
-autocmd Filetype c set shiftwidth=8
-autocmd Filetype c set softtabstop=8
-autocmd Filetype c set textwidth=100
 
-"au Filetype c setl sw=2 sts=2
