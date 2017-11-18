@@ -70,6 +70,15 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd Filetype python set tabstop=8
 autocmd Filetype python set shiftwidth=4
-autocmd Filetype python set textwidth=79
 autocmd Filetype python set softtabstop=4
+autocmd Filetype python set textwidth=79
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+autocmd BufRead,BufNewFile *.c set ft=c
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd Filetype c set tabstop=8
+autocmd Filetype c set shiftwidth=8
+autocmd Filetype c set softtabstop=8
+autocmd Filetype c set textwidth=100
+
+"au Filetype c setl sw=2 sts=2
