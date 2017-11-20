@@ -1,7 +1,7 @@
 URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
-urxvt*font: xft:inconsolata:size=10,xft:Droid Sans Mono for Powerline:size=5
+urxvt*font: xft:inconsolata:size=9,xft:Droid Sans Mono for Powerline:size=5
 urxvt*transparent: true
 URxvt*shading: 30
 URxvt.colorIT: #87af5f
@@ -36,3 +36,5 @@ URxvt*color14: #54FFFF
 ! white
 URxvt*color7:  #B2B2B2
 URxvt*color15: #FFFFFF
+
+URxvt.perl-ext-common: selection-to-clipboard
