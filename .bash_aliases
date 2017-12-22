@@ -16,5 +16,5 @@ if [[ "$ME" == "othallaptop" ]]; then
 elif [[ "$OS" == "FreeBSD" ]]; then
   alias ls="ls -G"
   alias ll="ls -laG"
-  alias zdf="zfs list -o name,mountpoint,used,logicalused,usedbydataset,usedbychildren,usedbysnapshots,quota,reservation,usedbyrefreservation,dedup,compression,refcompressratio -r zroot"
+  alias zdf="zfs list -o name,mounted,mountpoint,used,logicalused,usedbydataset,usedbychildren,usedbysnapshots,quota,reservation,usedbyrefreservation,dedup,compression,refcompressratio"
 fi
