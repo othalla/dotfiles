@@ -17,4 +17,5 @@ elif [[ "$OS" == "FreeBSD" ]]; then
   alias ls="ls -G"
   alias ll="ls -laG"
   alias zdf="zfs list -o name,mounted,mountpoint,used,logicalused,usedbydataset,usedbychildren,usedbysnapshots,quota,reservation,usedbyrefreservation,dedup,compression,refcompressratio"
+  alias cpuinfo="sysctl hw.model hw.machine hw.ncpu"
 fi
