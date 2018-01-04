@@ -1,6 +1,6 @@
+alias tx='tmux -u2 -f ~/.tmux.conf'
 if [[ "$ME" == "othallaptop" ]]; then
   alias sudo='sudo -E'
-  alias tx='tmux -u2 -f ~/.tmux.conf'
   # BLUETOOTH
   alias bton='sudo rfkill unblock bluetooth'
   alias btoff='sudo rfkill block bluetooth'
