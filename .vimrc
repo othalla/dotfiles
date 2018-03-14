@@ -8,26 +8,26 @@ if system == "FreeBSD"
   set bg=dark
 endif
 
-if hostname == LTPC
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'Valloric/YouCompleteMe'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'scrooloose/nerdcommenter'
-  Plugin 'lifepillar/vim-solarized'
-  Plugin 'flazz/vim-colorschemes'
-  call vundle#end()
+"if hostname == LTPC
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'lifepillar/vim-solarized'
+Plugin 'flazz/vim-colorschemes'
+call vundle#end()
 
-  " YCM
-  let g:ycm_key_list_select_completion = ['<TAB>']
+" YCM
+let g:ycm_key_list_select_completion = ['<TAB>']
 
-  " NERDCOMMENTER
-  let mapleader=";"
+" NERDCOMMENTER
+let mapleader=";"
 
-  " VIM-COLORSCHEMES
-  colorscheme molokai_dark
-endif
+" VIM-COLORSCHEMES
+colorscheme molokai_dark
+" endif
 
 syntax enable
 filetype plugin indent on
