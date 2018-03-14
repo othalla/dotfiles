@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'lifepillar/vim-solarized'
+" Plugin 'lifepillar/vim-solarized'
 Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 
