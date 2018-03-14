@@ -1,3 +1,4 @@
+set encoding=utf-8
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
 let system = substitute(system('uname -s'), '\n', '', '')
@@ -27,10 +28,8 @@ let mapleader=";"
 
 " VIM-COLORSCHEMES
 if !empty(glob("~/.vim/bundle/vim-colorschemes/"))
-   echo "File exists."
    colorscheme molokai_dark
 endif
-" endif
 
 syntax enable
 filetype plugin indent on
