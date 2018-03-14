@@ -26,7 +26,10 @@ let g:ycm_key_list_select_completion = ['<TAB>']
 let mapleader=";"
 
 " VIM-COLORSCHEMES
-colorscheme molokai_dark
+if !empty(glob("~/.vim/bundle/vim-colorschemes/"))
+   echo "File exists."
+   colorscheme molokai_dark
+endif
 " endif
 
 syntax enable
