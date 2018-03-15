@@ -77,3 +77,4 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 " c
 autocmd FileType c setlocal shiftwidth=8 tabstop=8 softtabstop=8 textwidth=140
 autocmd BufWrite *.c :call DeleteTrailingWS()
+
