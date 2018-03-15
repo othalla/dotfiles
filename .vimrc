@@ -1,4 +1,5 @@
 set encoding=utf-8
+
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
 let system = substitute(system('uname -s'), '\n', '', '')
