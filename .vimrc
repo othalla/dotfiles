@@ -1,5 +1,6 @@
 set encoding=utf-8
 
+
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
 let system = substitute(system('uname -s'), '\n', '', '')
@@ -23,6 +24,11 @@ Plugin 'godlygeek/tabular'
 Plugin 'raimondi/delimitmate'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()
+
+" NERDTREE
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " YCM
 let g:ycm_key_list_select_completion = ['<TAB>']
