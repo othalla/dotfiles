@@ -78,6 +78,11 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
+" Puppet
+au BufNewFile,BufRead *.pp set filetype=puppet
+autocmd BufWrite *.pp :call DeleteTrailingWS()
+autocmd Filetype puppet setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80 expandtab autoindent colorcolumn=80 fileformat=unix
+
 " c
 autocmd FileType c setlocal shiftwidth=8 tabstop=8 softtabstop=8 textwidth=140
 autocmd BufWrite *.c :call DeleteTrailingWS()
