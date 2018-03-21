@@ -53,3 +53,7 @@ man() {
   LESS_TERMCAP_us=$B_GREE
   command man "$@"
 }
+
+# Venv for vim etc.
+MYVENV3="${HOME}/fchvenv/bin/activate"
+[ -f $MYVENV3 ] && . $MYVENV3
