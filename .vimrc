@@ -19,6 +19,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rodjek/vim-puppet'
 Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'ddollar/nerdcommenter'
+Plugin 'godlygeek/tabular'
+Plugin 'raimondi/delimitmate'
+Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 " YCM
