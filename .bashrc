@@ -6,7 +6,7 @@ bind "\C-a":
 bind "\C-e":
 set -o vi
 
-export EDITOR=vi
+export EDITOR=vim
 export LANG=en_US.utf8
 
 # Local vars$

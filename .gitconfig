@@ -3,3 +3,9 @@
 # Please adapt and uncomment the following lines:
   name = othalla
   email = othalla.lf@gmail.com
+[color]
+  ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
