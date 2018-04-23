@@ -1,7 +1,45 @@
 set encoding=utf-8
 
-set mouse-=a
-set bg=dark
+
+" HOSTNAME
+let hostname = substitute(system('hostname'), '\n', '', '')
+let system = substitute(system('uname -s'), '\n', '', '')
+let LTPC = "othallaptop"
+
+if system == "FreeBSD"
+  set mouse-=a
+  set bg=dark
+endif
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'rodjek/vim-puppet'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'godlygeek/tabular'
+Plugin 'raimondi/delimitmate'
+Plugin 'scrooloose/nerdtree'
+call vundle#end()
+
+" NERDTREE
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '-'
+
+" YCM
+let g:ycm_key_list_select_completion = ['<TAB>']
+
+" NERDCOMMENTER
+let mapleader=";"
+
+" VIM-COLORSCHEMES
+if !empty(glob("~/.vim/bundle/vim-colorschemes/"))
+   colorscheme molokai_dark
+endif
 
 syntax enable
 filetype plugin indent on
@@ -29,7 +67,6 @@ set textwidth=100
 set cmdheight=1
 set laststatus=2
 set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
-
 if version >= 700
   highlight statusLine cterm=bold ctermfg=7 ctermbg=1
   au InsertLeave * highlight StatusLine cterm=bold  ctermfg=7 ctermbg=1
