@@ -1,4 +1,5 @@
 set encoding=utf-8
+set mouse-=a
 
 
 " HOSTNAME
@@ -7,7 +8,6 @@ let system = substitute(system('uname -s'), '\n', '', '')
 let LTPC = "othallaptop"
 
 if system == "FreeBSD"
-  set mouse-=a
   set bg=dark
 endif
 
