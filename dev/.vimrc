@@ -115,6 +115,11 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 
+func! DeleteNewLineEndOfFile()
+  set binary
+  set noeol
+endfunc
+
 " Python
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80 expandtab autoindent colorcolumn=80 fileformat=unix
