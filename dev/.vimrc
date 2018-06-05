@@ -117,7 +117,7 @@ endfunc
 
 " Python
 autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80 expandtab autoindent colorcolumn=80 fileformat=unix
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Puppet
