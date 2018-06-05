@@ -133,3 +133,7 @@ autocmd Filetype puppet setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=
 " c
 autocmd FileType c setlocal shiftwidth=8 tabstop=8 softtabstop=8 textwidth=140
 autocmd BufWrite *.c :call DeleteTrailingWS()
+
+" Line Break
+:nnoremap <NL> i<CR><ESC>
+
