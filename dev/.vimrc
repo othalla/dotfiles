@@ -1,6 +1,12 @@
 set encoding=utf-8
 set mouse-=a
 
+" Folding
+setlocal foldmethod=syntax
+" Remember folding for old files
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
 
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
@@ -13,6 +19,7 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+"Plugin 'tmhedberg/SimpylFold'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'

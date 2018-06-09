@@ -61,3 +61,15 @@ function bkfile () {
   } 
 }
 
+
+help_for () {
+  [ -f ~/docs/$1 ] && {
+    cat ~/docs/$1
+    return 0
+  }
+  echo "Documentation for $i not found!"
+  return 1
+}
+
+
+
