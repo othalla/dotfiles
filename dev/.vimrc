@@ -6,9 +6,8 @@ setlocal foldmethod=indent
 set foldlevelstart=20
 
 " Remember folding for old files
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
-
+"au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
 
 " HOSTNAME
 let hostname = substitute(system('hostname'), '\n', '', '')
@@ -21,15 +20,10 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'autozimu/LanguageClient-neovim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'ryanolsonx/vim-lsp-python'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'prabirshrestha/asyncomplete-file.vim'
-Plugin 'prabirshrestha/asyncomplete-buffer.vim'
+Plugin 'maralla/completor.vim'
 Plugin 'w0rp/ale'
 Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -42,48 +36,33 @@ Plugin 'raimondi/delimitmate'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
-" LSP
-" PYTHON
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+set hidden
 
-" Asyncomplete 
-" Tab
+let g:LanguageClient_serverCommands = {
+      \ 'python': ['pyls'],
+      \ 'puppet': ['tcp://127.0.0.1:10000'],
+      \ }
+let g:LanguageClient_loggingFile = '/tmp/lang.log'
+let g:LanguageClient_loggingLevel = 'DEBUG'
+let g:LanguageClient_serverStderr = '/tmp/err'
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" File completion
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-" Buffer completion
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
-
-
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " NERDTREE
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '-'
 
-
 " NERDCOMMENTER
 let mapleader=";"
 
 " VIM-COLORSCHEMES
 if !empty(glob("~/.vim/bundle/vim-colorschemes/"))
-   colorscheme molokai_dark
+  colorscheme molokai_dark
 endif
 
 syntax enable
@@ -145,4 +124,3 @@ autocmd BufWrite *.c :call DeleteTrailingWS()
 
 " Line Break
 :nnoremap <NL> i<CR><ESC>
-
