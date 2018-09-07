@@ -4,14 +4,17 @@
 function list_functions {
 grep function ~/.bash_functions	
 }
+
 function virton {
   sudo systemctl start virtlogd.service
   sudo systemctl start libvirtd.service
   sudo systemctl start libvirt.*
 }
+
 function mount_data2 {
   sudo mount -o user=henrylf,password=florian29,domain=OTHALLAPC //192.168.1.15/Data2 /mnt/data2
 }
+
 function mount_data3 {
   sudo mount -o user=henrylf,password=florian29,domain=OTHALLAPC //192.168.1.15/Data3 /mnt/data3
 }
@@ -23,15 +26,15 @@ function bkfile () {
   typeset OS=$(uname -s)
   typeset FILE_OWNUID
   typeset MYUID
-  [[ "$#" == 1 ]] || { 
+  [[ "$#" == 1 ]] || {
     echo "Must be used with only one param : filename"
-    return 1 
+    return 1
   } 
   [[ -f $1 ]] || {
     echo "$1 -- PROBLEM !"
     echo "Is a file ?"
     echo "Does it exists?"
-    return 1 
+    return 1
   }
   case $OS in 
     Linux) 
@@ -47,8 +50,8 @@ function bkfile () {
       ;;
     *) 
       echo "WTF?"
-      return 1 
-      ;; 
+      return 1
+      ;;
   esac
   typeset BKFILE="$1.${BKDATE}.${FNAME_TAG}.OLD"
   [[ "$MYUID" == "$FILE_OWNUID" ]] && PREFIX_CMD=""
@@ -58,9 +61,8 @@ function bkfile () {
   } || {
     echo "Error while creating/copying Backup File !"
     return 1 
-  } 
+  }
 }
-
 
 help_for () {
   [ -f ~/docs/$1 ] && {
@@ -70,6 +72,3 @@ help_for () {
   echo "Documentation for $i not found!"
   return 1
 }
-
-
-
