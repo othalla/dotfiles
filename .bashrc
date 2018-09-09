@@ -57,6 +57,12 @@ man() {
   command man "$@"
 }
 
-# Venv for vim etc.
-MYVENV3="${HOME}/fchvenv/bin/activate"
+# Venv for vim
+MYVENV3="${HOME}/venv/bin/activate"
 [ -f $MYVENV3 ] && . $MYVENV3
+
+# Autoenv
+
+AUTOENV_FILE="/usr/local/bin/activate.sh"
+
+[ -f $AUTOENV_FILE ] && source $AUTOENV_FILE
