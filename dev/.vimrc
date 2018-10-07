@@ -41,6 +41,16 @@ set hidden
 " ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_fixers = [
+\   'black',
+\   'autopep8',
+\   'remove_trailing_lines',
+\   'isort',
+\   'ale#fixers#generic_python#BreakUpLongLines',
+\   'add_blank_lines_for_python_control_statements',
+\   'trim_whitespace',
+\   'yapf',
+\]
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
