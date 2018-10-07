@@ -59,6 +59,10 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '-'
 
+" SimpylFold
+
+let g:SimpylFold_docstring_preview=1
+
 " NERDCOMMENTER
 let mapleader=";"
 
