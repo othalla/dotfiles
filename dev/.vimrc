@@ -38,13 +38,15 @@ call vundle#end()
 
 set hidden
 
+" ALE
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+
+" LanguageClient
 let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
       \ 'puppet': ['tcp://127.0.0.1:10000'],
       \ }
-let g:LanguageClient_loggingFile = '/tmp/lang.log'
-let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_serverStderr = '/tmp/err'
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
