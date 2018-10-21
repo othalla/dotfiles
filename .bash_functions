@@ -72,3 +72,7 @@ help_for () {
   echo "Documentation for $i not found!"
   return 1
 }
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
