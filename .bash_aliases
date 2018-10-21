@@ -1,5 +1,6 @@
 alias tx='tmux -u2 -f ~/.tmux.conf'
 alias update_virtualenv="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias gpumr="git pull upstream --rebase master"
 if [[ "$ME" == "othallaptop" ]]; then
   alias sudo='sudo -E'
   # BLUETOOTH
