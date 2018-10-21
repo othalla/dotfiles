@@ -44,7 +44,7 @@ else
 fi
 
 # Build PS1
-PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}${CUSTOM_COLOR} # ${END_C}"
+PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}\$(parse_git_branch)${CUSTOM_COLOR} #${END_C} "
 
 # FUNCTIONS
 man() {
