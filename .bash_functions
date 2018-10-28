@@ -11,14 +11,6 @@ function virton {
   sudo systemctl start libvirt.*
 }
 
-function mount_data2 {
-  sudo mount -o user=henrylf,password=florian29,domain=OTHALLAPC //192.168.1.15/Data2 /mnt/data2
-}
-
-function mount_data3 {
-  sudo mount -o user=henrylf,password=florian29,domain=OTHALLAPC //192.168.1.15/Data3 /mnt/data3
-}
-
 function bkfile () { 
   typeset PREFIX_CMD="sudo "
   typeset FNAME_TAG="FCHARDIN"
