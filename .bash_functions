@@ -2,7 +2,7 @@
 # My Functions
 
 function list_functions {
-grep function ~/.bash_functions	
+  grep function ~/.bash_functions	
 }
 
 function virton {
