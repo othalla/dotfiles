@@ -1,17 +1,17 @@
 #!/bin/bash
 # My Functions
 
-function list_functions {
+function list_functions {               # List all bash_functions
   grep function ~/.bash_functions	
 }
 
-function virton {
+function virton {                       # Enable local libvirt daemons
   sudo systemctl start virtlogd.service
   sudo systemctl start libvirtd.service
   sudo systemctl start libvirt.*
 }
 
-function bkfile () { 
+function bkfile () {                    # Backup a file with date and author suffix
   typeset PREFIX_CMD="sudo "
   typeset FNAME_TAG="FCHARDIN"
   typeset BKDATE="$(date +%Y%m%d-%H%M)"
@@ -56,7 +56,7 @@ function bkfile () {
   }
 }
 
-help_for () {
+help_for () {                           # Show documentation for given keywork based on ~/docs files
   [ -f ~/docs/$1 ] && {
     cat ~/docs/$1
     return 0
@@ -65,6 +65,6 @@ help_for () {
   return 1
 }
 
-parse_git_branch() {
+parse_git_branch() {                    # Get the current git branch in the CWD
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
