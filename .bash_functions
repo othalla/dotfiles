@@ -65,6 +65,13 @@ help_for () {                           # Show documentation for given keywork b
   return 1
 }
 
+help_list () {                          # List all helps availables in $HOME/docs directory
+  for i in $(ls ~/docs);
+  do
+    echo $i;
+  done
+}
+
 parse_git_branch() {                    # Get the current git branch in the CWD
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
