@@ -8,7 +8,7 @@ set -o vi
 
 export EDITOR=vim
 export LANG=en_US.utf8
-export PAGER="less"
+export PAGER="more"
 
 # Local vars$
 export ME=$(uname -n)
@@ -46,17 +46,6 @@ fi
 
 # Build PS1
 PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}\$(parse_git_branch)${CUSTOM_COLOR} #${END_C} "
-
-# FUNCTIONS
-man() {
-  LESS_TERMCAP_md=$B_RED
-  LESS_TERMCAP_me=$'\e[0m'
-  LESS_TERMCAP_se=$'\e[0m'
-  LESS_TERMCAP_so=$'\e[01;44;33m'
-  LESS_TERMCAP_ue=$'\e[0m'
-  LESS_TERMCAP_us=$B_GREE
-  command man "$@"
-}
 
 # Venv for vim
 MYVENV3="${HOME}/venv/bin/activate"
