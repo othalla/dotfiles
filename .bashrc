@@ -8,6 +8,7 @@ set -o vi
 
 export EDITOR=vim
 export LANG=en_US.utf8
+export PAGER="less"
 
 # Local vars$
 export ME=$(uname -n)
