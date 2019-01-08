@@ -51,7 +51,9 @@ let g:ale_fixers = [
 \   'trim_whitespace',
 \   'yapf',
 \]
-
+let g:ale_linters = {
+\   'python': ['flake8', 'mypy', 'prospector', 'pycodestyle', 'pydocstyle', 'pyflakes', 'pylint', 'pyls', 'pyre', 'vulture'],
+\}
 " LanguageClient
 let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
