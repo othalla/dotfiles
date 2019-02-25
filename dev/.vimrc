@@ -52,7 +52,15 @@ let g:ale_fixers = [
 \   'yapf',
 \]
 let g:ale_linters = {
-\   'python': ['flake8', 'mypy', 'prospector', 'pycodestyle', 'pydocstyle', 'pyflakes', 'pylint', 'pyls', 'pyre', 'vulture'],
+\   'python': ['flake8',
+\              'mypy',
+\              'prospector',
+\              'pycodestyle',
+\              'isort',
+\              'pydocstyle',
+\              'pyflakes',
+\              'pylint',
+\              'pyls'],
 \}
 " LanguageClient
 let g:LanguageClient_serverCommands = {
