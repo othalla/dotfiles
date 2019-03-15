@@ -20,6 +20,7 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'fatih/vim-go'
 Plugin 'autozimu/LanguageClient-neovim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'VundleVim/Vundle.vim'
