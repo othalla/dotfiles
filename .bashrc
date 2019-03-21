@@ -23,6 +23,8 @@ export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%d/%m/%y %T "
 # I3 only
 export TERMINAL="urxvt256c"
+# GOPATH
+export GOPATH=$HOME/go
 
 # Source global definitions
 
