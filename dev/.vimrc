@@ -21,6 +21,7 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'autozimu/LanguageClient-neovim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'VundleVim/Vundle.vim'
@@ -38,6 +39,9 @@ Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 set hidden
+
+
+let g:completor_gocode_binary = '~/go-projects/bin/gocode'
 
 " ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -67,6 +71,7 @@ let g:ale_linters = {
 let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
       \ 'puppet': ['tcp://127.0.0.1:10000'],
+      \ 'go': ['go-langserver'],
       \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
