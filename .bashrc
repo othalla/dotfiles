@@ -24,7 +24,8 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # I3 only
 export TERMINAL="urxvt256c"
 # GOPATH
-export GOPATH=$HOME/go
+export GOPATH=$HOME/go-projects
+export PATH=$PATH:$HOME/bin:$HOME/go/bin
 
 # Source global definitions
 
