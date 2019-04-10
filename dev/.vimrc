@@ -64,8 +64,7 @@ let g:ale_linters = {
 \              'isort',
 \              'pydocstyle',
 \              'pyflakes',
-\              'pylint',
-\              'pyls'],
+\              'pylint'],
 \}
 " LanguageClient
 let g:LanguageClient_serverCommands = {
