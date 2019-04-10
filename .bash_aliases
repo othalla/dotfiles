@@ -22,3 +22,6 @@ elif [[ "$OS" == "FreeBSD" ]]; then
   alias zdf="zfs list -o name,mounted,mountpoint,used,logicalused,usedbydataset,usedbychildren,usedbysnapshots,quota,reservation,usedbyrefreservation,dedup,compression,refcompressratio"
   alias cpuinfo="sysctl hw.model hw.machine hw.ncpu"
 fi
+
+HUB_PATH="$(which hub)"
+[ -n "$HUB_PATH" ] && alias git="$HUB_PATH"
