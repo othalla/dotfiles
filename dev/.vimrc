@@ -1,9 +1,15 @@
 set encoding=utf-8
 set mouse-=a
+set linespace=0
+
+
 
 " Folding
 setlocal foldmethod=indent
 set foldlevelstart=20
+set linespace=0
+
+
 
 " Remember folding for old files
 "au BufWinLeave * mkview
@@ -20,9 +26,6 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'autozimu/LanguageClient-neovim'
@@ -43,29 +46,7 @@ call vundle#end()
 
 set hidden
 
-
 let g:completor_gocode_binary = '~/go-projects/bin/gocode'
-" air-line
-let g:airline_powerline_fonts = 1
-let g:airline_theme='dark_minimal'
-"let g:airline_molokai_bg='dark'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
 
 " ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
