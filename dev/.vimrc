@@ -20,6 +20,9 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'autozimu/LanguageClient-neovim'
@@ -42,6 +45,27 @@ set hidden
 
 
 let g:completor_gocode_binary = '~/go-projects/bin/gocode'
+" air-line
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark_minimal'
+"let g:airline_molokai_bg='dark'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
 
 " ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -66,6 +90,10 @@ let g:ale_linters = {
 \              'pyflakes',
 \              'pylint'],
 \}
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 " LanguageClient
 let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
