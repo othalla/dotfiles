@@ -2,10 +2,10 @@ URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
 
-URxvt.font:             xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
-URxvt.boldFont:         xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
-URxvt.italicFont:       xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
-URxvt.bolditalicFont:   xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.font:             xft:dejavu sans mono:pixelsize=12:antialias=true,hinting=true
+URxvt.boldFont:         xft:dejavu sans mono:pixelsize=12:antialias=true,hinting=true
+URxvt.italicFont:       xft:dejavu sans mono:pixelsize=12:antialias=true,hinting=true
+URxvt.bolditalicFont:   xft:dejavu sans mono:pixelsize=12:antialias=true,hinting=true
 
 
 URxvt*transparent: true
