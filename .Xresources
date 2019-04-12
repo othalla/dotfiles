@@ -1,7 +1,12 @@
 URxvt*scrollBar: false
 URxvt*background: Black
 URxvt*foreground: White
-URxvt*font: xft:inconsolata:size=8,xft:Droid Sans Mono for Powerline:size=5
+
+URxvt.font:             xft:inconsolata:pixelsize=13:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.boldFont:         xft:inconsolata:pixelsize=13:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.italicFont:       xft:inconsolata:pixelsize=13:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.bolditalicFont:   xft:inconsolata:pixelsize=13:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+
 URxvt*transparent: true
 URxvt*shading: 30
 URxvt.colorIT: #87af5f
