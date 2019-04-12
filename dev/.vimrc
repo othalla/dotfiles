@@ -22,6 +22,10 @@ endif
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'autozimu/LanguageClient-neovim'
@@ -44,6 +48,10 @@ set hidden
 
 let g:completor_gocode_binary = '~/go-projects/bin/gocode'
 
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark_minimal'
+"
 " ALE
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_mypy_options = '--ignore-missing-imports'
