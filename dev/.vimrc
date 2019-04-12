@@ -20,31 +20,28 @@ if system == "FreeBSD"
   set bg=dark
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-
-
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'maralla/completor.vim'
-Plugin 'w0rp/ale'
-Plugin 'nvie/vim-flake8'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'rodjek/vim-puppet'
-Plugin 'puppetlabs/puppet-syntax-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'raimondi/delimitmate'
-Plugin 'scrooloose/nerdtree'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'autozimu/LanguageClient-neovim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'VundleVim/Vundle.vim'
+Plug 'maralla/completor.vim'
+Plug 'w0rp/ale'
+Plug 'nvie/vim-flake8'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'scrooloose/nerdcommenter'
+Plug 'flazz/vim-colorschemes'
+Plug 'rodjek/vim-puppet'
+Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'godlygeek/tabular'
+Plug 'raimondi/delimitmate'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
 set hidden
 
