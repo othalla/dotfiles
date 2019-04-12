@@ -41,6 +41,10 @@ if [ -f ~/.bash_colors ];then
   . ~/.bash_colors
 fi
 
+if [ -f ~/.git-prompt.sh ];then
+  . ~/.git-prompt.sh
+fi
+
 if [ $OS == "FreeBSD" ] ; then
   CUSTOM_COLOR=${B_RED}
 else
@@ -48,7 +52,7 @@ else
 fi
 
 # Build PS1
-PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}\$(parse_git_branch)${CUSTOM_COLOR} #${END_C} "
+PS1="${CUSTOM_COLOR}\u${END_C}${B_WHITE}@${ENC_C}${CUSTOM_COLOR}\h${END_C}:${B_WHITE}\w${END_C}\$(__git_ps1 \" (%s)\")${CUSTOM_COLOR} #${END_C} "
 
 # Venv for vim
 MYVENV3="${HOME}/venv/bin/activate"
