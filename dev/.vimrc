@@ -2,14 +2,10 @@ set encoding=utf-8
 set mouse-=a
 set linespace=0
 
-
-
 " Folding
 setlocal foldmethod=indent
 set foldlevelstart=20
 set linespace=0
-
-
 
 " Remember folding for old files
 "au BufWinLeave * mkview
