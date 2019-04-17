@@ -16,7 +16,7 @@ export OS=$(uname -s)
 export USER=$(whoami)
 
 # HISTORY config
-export TERM=xterm-256color
+export TERM=tmux-256color
 export HISTSIZE=32768
 export HISTFILESIZE=32768
 export HISTCONTROL=ignoreboth
