@@ -33,7 +33,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'tmhedberg/SimpylFold'
 Plug 'VundleVim/Vundle.vim'
-Plug 'maralla/completor.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'nvie/vim-flake8'
 Plug 'hynek/vim-python-pep8-indent'
@@ -48,7 +48,6 @@ call plug#end()
 
 set hidden
 
-let g:completor_gocode_binary = '~/go-projects/bin/gocode'
 
 " Airline
 let g:airline_powerline_fonts = 1
