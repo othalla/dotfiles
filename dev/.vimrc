@@ -48,6 +48,8 @@ call plug#end()
 
 set hidden
 
+" Deoplite
+let g:deoplete#enable_at_startup = 1
 
 " Airline
 let g:airline_powerline_fonts = 1
