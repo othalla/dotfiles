@@ -74,7 +74,6 @@ let g:ale_linters = {
 \              'prospector',
 \              'pycodestyle',
 \              'isort',
-\              'pydocstyle',
 \              'pyflakes',
 \              'pylint'],
 \}
