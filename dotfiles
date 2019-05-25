@@ -5,3 +5,4 @@
 .bash_aliases
 .bash_functions
 .gitconfig
+.git-prompt.sh
