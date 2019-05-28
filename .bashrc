@@ -45,6 +45,10 @@ if [ -f ~/.git-prompt.sh ];then
   . ~/.git-prompt.sh
 fi
 
+if [ -f ~/.gvm/scripts/gvm ];then
+  . ~/.gvm/scripts/gvm
+fi
+
 if [ $OS == "FreeBSD" ] ; then
   CUSTOM_COLOR=${B_RED}
 else
