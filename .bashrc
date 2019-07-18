@@ -76,3 +76,10 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 AUTOENV_FILE="$HOME/.autoenv/activate.sh"
 
 [ -f $AUTOENV_FILE ] && source $AUTOENV_FILE
+
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
