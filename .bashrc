@@ -73,6 +73,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Autoenv
 
-AUTOENV_FILE="/usr/local/bin/activate.sh"
+AUTOENV_FILE="$HOME/.autoenv/activate.sh"
 
 [ -f $AUTOENV_FILE ] && source $AUTOENV_FILE
