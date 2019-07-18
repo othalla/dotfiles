@@ -108,7 +108,7 @@ let g:SimpylFold_docstring_preview=1
 let mapleader=";"
 
 " VIM-COLORSCHEMES
-if !empty(glob("~/.vim/bundle/vim-colorschemes/"))
+if !empty(glob("~/.vim/plugged/vim-colorschemes/"))
   colorscheme molokai_dark
 endif
 
