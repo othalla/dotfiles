@@ -3,6 +3,7 @@ alias update_virtualenv="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | 
 alias gpumr="git pull upstream --rebase master"
 alias gitlog="git log --graph --oneline --all"
 if [[ "$ME" == "othallaptop" ]]; then
+  alias gotest='go test -v ./... --cover'
   alias sudo='sudo -E'
   # BLUETOOTH
   alias bton='sudo rfkill unblock bluetooth'
