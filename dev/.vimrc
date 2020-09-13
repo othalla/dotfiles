@@ -5,6 +5,7 @@ set linespace=0
 " Folding
 setlocal foldmethod=indent
 set foldlevelstart=20
+
 set linespace=0
 
 " Remember folding for old files
@@ -45,6 +46,7 @@ Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdtree'
+Plug 'janko/vim-test'
 call plug#end()
 
 set hidden
@@ -74,6 +76,7 @@ let g:ale_linters = {
 \              'mypy',
 \              'prospector',
 \              'pycodestyle',
+\              'black',
 \              'isort',
 \              'pyflakes',
 \              'pylint'],
@@ -111,6 +114,9 @@ let mapleader=";"
 if !empty(glob("~/.vim/plugged/vim-colorschemes/"))
   colorscheme molokai_dark
 endif
+
+" VIMTEST
+let test#python#runner = 'pytest'
 
 syntax enable
 filetype plugin indent on
@@ -163,7 +169,7 @@ au FileType go set tabstop=4
 
 " Python
 autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80 expandtab autoindent colorcolumn=80 fileformat=unix
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80 expandtab autoindent colorcolumn=88 fileformat=unix
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Puppet
@@ -171,6 +177,8 @@ au BufNewFile,BufRead *.pp set filetype=puppet
 autocmd BufWrite *.pp :call DeleteTrailingWS()
 autocmd Filetype puppet setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80 expandtab autoindent colorcolumn=80 fileformat=unix
 
+au BufNewFile,BufRead *.eyaml set filetype=yaml
+autocmd BufWrite *.eyaml :call DeleteTrailingWS()
 " c
 autocmd FileType c setlocal shiftwidth=8 tabstop=8 softtabstop=8 textwidth=140
 autocmd BufWrite *.c :call DeleteTrailingWS()
