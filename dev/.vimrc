@@ -1,4 +1,5 @@
-set encoding=utf-8
+set encoding=UTF-8
+
 set mouse-=a
 set linespace=0
 
@@ -8,95 +9,40 @@ set foldlevelstart=20
 
 set linespace=0
 
-" Remember folding for old files
-"au BufWinLeave * mkview
-"au BufWinEnter * silent loadview
-
-" HOSTNAME
-let hostname = substitute(system('hostname'), '\n', '', '')
-let system = substitute(system('uname -s'), '\n', '', '')
-let LTPC = "othallaptop"
-
-if system == "FreeBSD"
-  set bg=dark
-endif
-
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'tmhedberg/SimpylFold'
+" Plugin manager
 Plug 'VundleVim/Vundle.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-Plug 'w0rp/ale'
-Plug 'nvie/vim-flake8'
-Plug 'hynek/vim-python-pep8-indent'
+" Git integration
+Plug 'tpope/vim-fugitive'
+" Research
+Plug 'ctrlpvim/ctrlp.vim'
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Golding
+Plug 'tmhedberg/SimpylFold'
+" Comment
 Plug 'scrooloose/nerdcommenter'
+" Theme
 Plug 'flazz/vim-colorschemes'
-Plug 'rodjek/vim-puppet'
-Plug 'puppetlabs/puppet-syntax-vim'
+" helpers
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdtree'
 Plug 'janko/vim-test'
+" LSP
+Plug 'neovim/nvim-lspconfig'
+" Completion
+Plug 'hrsh7th/nvim-compe'
+" Statusbar
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
-set hidden
-
-" Deoplite
-let g:deoplete#enable_at_startup = 1
-
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='dark_minimal'
-"
-" ALE
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_mypy_options = '--ignore-missing-imports'
-let g:ale_fixers = [
-\   'black',
-\   'autopep8',
-\   'remove_trailing_lines',
-\   'isort',
-\   'ale#fixers#generic_python#BreakUpLongLines',
-\   'add_blank_lines_for_python_control_statements',
-\   'trim_whitespace',
-\   'yapf',
-\]
-let g:ale_linters = {
-\   'python': ['flake8',
-\              'mypy',
-\              'prospector',
-\              'pycodestyle',
-\              'black',
-\              'isort',
-\              'pyflakes',
-\              'pylint'],
-\}
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-      \ 'python': ['pyls'],
-      \ 'puppet': ['tcp://127.0.0.1:10000'],
-      \ 'go': ['go-langserver'],
-      \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" Lua config
+" ==========
+luafile ~/.config/nvim/config.lua
 
 " NERDTREE
 map <C-n> :NERDTreeToggle<CR>
@@ -111,9 +57,7 @@ let g:SimpylFold_docstring_preview=1
 let mapleader=";"
 
 " VIM-COLORSCHEMES
-if !empty(glob("~/.vim/plugged/vim-colorschemes/"))
-  colorscheme molokai_dark
-endif
+colorscheme molokai_dark
 
 " VIMTEST
 let test#python#runner = 'pytest'
@@ -139,16 +83,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set textwidth=100
-
-" statusbat
-set cmdheight=1
-set laststatus=2
-set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
-if version >= 700
-  highlight statusLine cterm=bold ctermfg=7 ctermbg=1
-  au InsertLeave * highlight StatusLine cterm=bold  ctermfg=7 ctermbg=1
-  au InsertEnter * highlight StatusLine cterm=bold ctermfg=7 ctermbg=2
-endif
 
 func! DeleteTrailingWS()
   exe "normal mz"
