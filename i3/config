@@ -1,0 +1,193 @@
+# i3 config file (v4)
+# # customize workspace names
+set $ws1 1:Kitty
+set $ws2 2:Chromium
+set $ws3 3:Thunderbird
+set $ws4 4:Webex
+set $ws5 5:KeePassXC
+#
+# then use them like so:
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+
+# Autoasign softwares to specific workspace
+#assign [class="kitty"] $ws1
+assign [class="alacritty"] $ws1
+assign [class="Chromium"] $ws2
+assign [class="Thunderbird"] $ws3
+assign [class="Webex"] $ws4
+assign [class="KeepassXC"] $ws5
+
+# META KEY
+set $mod Mod4
+
+font pango:monospace 09
+floating_modifier $mod
+
+new_window 1pixel
+
+# start a terminal
+bindsym $mod+Return exec ~/bin/alacritty
+
+# Auto lock i3lock
+exec xss-lock -- i3lock -c 000000 &
+
+# BACKGROUND IMAGE
+exec feh --bg-scale Pictures/DARK_WALLPAPER.jpg
+# TRAYS Programs
+exec "sleep 5 && sudo rfkill block bluetooth"
+exec "sleep 2 && sudo rfkill block wwan"
+
+# kill focused window
+bindsym $mod+Shift+a kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+m move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+q focus parent
+
+# switch to workspace
+bindsym $mod+ampersand workspace $ws1
+bindsym $mod+eacute workspace $ws2
+bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+apostrophe workspace $ws4
+bindsym $mod+parenleft workspace $ws5
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+quotedbl move container to workspace $ws3
+bindsym $mod+Shift+apostrophe move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+minus move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+underscore move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+  colors {
+    background #000000
+      statusline #ffffff
+      separator  #666666
+      focused_workspace  #008fff #007fff #ffffff
+      active_workspace   #333333 #5f676a #ffffff
+      urgent_workspace   #aa0000 #990000 #ffffff
+  }
+  tray_output primary
+  font pango:DejaVu sans Mono 10
+  separator_symbol "|"
+  status_command i3status --config ~/.config/i3/i3status.conf
+}
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec sudo /home/henrylf/bin/brightness inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec sudo /home/henrylf/bin/brightness dec # decrease screen brightness
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+set $mode_system System (p) Poweroff, (s) Suspend, (r) Reboot, (l) Lock
+mode "$mode_system" {
+    bindsym p exec systemctl poweroff, mode "default"
+    bindsym s exec i3_suspend, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym l exec i3lock -c 000000, mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+o mode "$mode_system"
+
+# Chromium shortcut
+bindsym $mod+c exec chromium-browser
+
+# tap to blick
+exec --no-startup-id xinput set-prop 12 280 1
+
+# auto locking - 10 mins
+exec --no-startup-id xset dpms 60
