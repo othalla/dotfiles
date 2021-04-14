@@ -23,7 +23,7 @@ Plug 'tmhedberg/SimpylFold'
 " Comment
 Plug 'scrooloose/nerdcommenter'
 " Theme
-Plug 'flazz/vim-colorschemes'
+Plug 'joshdick/onedark.vim'
 " helpers
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
@@ -56,10 +56,10 @@ let g:SimpylFold_docstring_preview=1
 " NERDCOMMENTER
 let mapleader=";"
 
-" VIM-COLORSCHEMES
-colorscheme molokai_dark
+" Colorscheme
+colorscheme onedark
 
-" VIMTEST
+" vimtest
 let test#python#runner = 'pytest'
 
 syntax enable
