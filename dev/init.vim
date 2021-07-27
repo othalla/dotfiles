@@ -1,34 +1,32 @@
 set encoding=UTF-8
 
-set mouse-=a
-set linespace=0
-
-" Folding
-setlocal foldmethod=indent
-set foldlevelstart=20
-
-set linespace=0
+filetype on
+filetype plugin on
+filetype indent on
 
 call plug#begin('~/.vim/plugged')
 " Plugin manager
 Plug 'VundleVim/Vundle.vim'
 " Git integration
 Plug 'tpope/vim-fugitive'
-" Research
-Plug 'ctrlpvim/ctrlp.vim'
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Golding
-Plug 'tmhedberg/SimpylFold'
 " Comment
 Plug 'scrooloose/nerdcommenter'
 " Theme
 Plug 'joshdick/onedark.vim'
+" Custor line
+Plug 'yamatsum/nvim-cursorline'
 " helpers
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
-Plug 'scrooloose/nerdtree'
-Plug 'janko/vim-test'
+"
+" Spellsitter
+Plug 'lewis6991/spellsitter.nvim'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 " Completion
@@ -38,29 +36,30 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 " Lua config
 " ==========
 luafile ~/.config/nvim/config.lua
 
-" NERDTREE
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = '-'
+" vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
-" SimpylFold
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gt <Plug>(go-test)
 
-let g:SimpylFold_docstring_preview=1
-
-" NERDCOMMENTER
+" leader
 let mapleader=";"
+"
+" nerdcommenter
+let g:NERDSpaceDelims = 1
 
 " Colorscheme
 colorscheme onedark
-
-" vimtest
-let test#python#runner = 'pytest'
 
 syntax enable
 filetype plugin indent on
@@ -76,7 +75,6 @@ set hlsearch
 set nocompatible
 set wildmenu
 set incsearch
-set expandtab
 
 " Default Indent & linesize
 set tabstop=2
@@ -119,3 +117,25 @@ autocmd BufWrite *.c :call DeleteTrailingWS()
 
 " Line Break
 :nnoremap <NL> i<CR><ESC>
+
+" Rename current word
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" Nvim-compe with delimitmate
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
