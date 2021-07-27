@@ -24,7 +24,4 @@ elif [[ "$OS" == "FreeBSD" ]]; then
   alias cpuinfo="sysctl hw.model hw.machine hw.ncpu"
 fi
 
-HUB_PATH="$(which hub)"
-[ -n "$HUB_PATH" ] && alias git="$HUB_PATH"
-NVIM_PATH="$(which nvim)"
-[ -n "$NVIM_PATH" ] && alias vim="$NVIM_PATH"
+alias vim="$HOME/bin/nvim"
