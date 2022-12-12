@@ -1,0 +1,7 @@
+alias tx='tmux'
+alias vim='nvim'
+alias v='nvim'
+alias k='kubectl'
+alias gpumr='git pull origin master --rebase'
+alias ls='ls -h --group-directories-first --color=auto'
+alias kus="setxkbmap -layout us -variant altgr-intl"

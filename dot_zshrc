@@ -1,0 +1,53 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export PATH=~/bin:$PATH
+
+# history
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTFILE=${HOME}/.zsh_history
+setopt share_history
+
+# Aliases
+source ~/.zsh_aliases
+
+# Zplug
+source ~/.zplug/init.zsh
+
+zplug romkatv/powerlevel10k, as:theme, depth:1
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug load
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Vi mode
+bindkey -v
+# Allow Ctrl + r for reverse search
+bindkey '^R' history-incremental-search-backward
+# Ctrl + space for autosuggest-accept
+bindkey '^ ' autosuggest-accept
+
+# Completion
+autoload -Uz compinit && compinit
+
+if [ -f ~/.gvm/scripts/gvm ];then
+  . ~/.gvm/scripts/gvm
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ -f ~/.zshrc_custom ];then
+  . ~/.zshrc_custom
+fi
+
+if [ -f ~/.zsh_aliases_custom ];then
+  . ~/.zsh_aliases_custom
+fi
