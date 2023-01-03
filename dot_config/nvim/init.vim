@@ -58,6 +58,7 @@ Plug 'leoluz/nvim-dap-go'
 " ScrollBar
 Plug 'petertriho/nvim-scrollbar'
 Plug 'towolf/vim-helm'
+Plug 'nvim-tree/nvim-tree.lua'
 
 call plug#end()
 
