@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH=~/bin:$PATH
+export BROWSER=/snap/bin/chromium
 
 # history
 export HISTSIZE=100000
@@ -51,3 +52,7 @@ fi
 if [ -f ~/.zsh_aliases_custom ];then
   . ~/.zsh_aliases_custom
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
