@@ -9,7 +9,7 @@ set termguicolors
 
 call plug#begin('~/.vim/plugged')
 " Plugin manager
-Plug 'VundleVim/Vundle.vim'
+" Plug 'VundleVim/Vundle.vim'
 " Git integration
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/spellsitter.nvim'
@@ -45,7 +45,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " ultest
 Plug 'voldikss/vim-floaterm'
-Plug 'antoinemadec/FixCursorHold.nvim'
+" Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-go'
 
