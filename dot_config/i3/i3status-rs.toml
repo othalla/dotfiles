@@ -1,0 +1,40 @@
+theme = "native"
+# icons = "none"
+icons = "awesome"
+# icons = "none"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage} {time}"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 3
+
+[[block]]
+block = "load"
+interval = 3
+format = "{1m}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "networkmanager"
+on_click = "alacritty -e nmtui"
+device_format = "{icon}{ap}"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "cscotun0"]
+interface_name_include = []
+
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %d/%m %R"
