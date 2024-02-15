@@ -107,7 +107,9 @@ lspconfig.gopls.setup {
 	},
 }
 
-lspconfig.pylsp.setup{}
+lspconfig.pylsp.setup{
+       on_attach = on_attach,
+}
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
